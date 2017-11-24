@@ -18,6 +18,6 @@ public class NivelAcesso {
     @Column
     private String nomeAcesso;
 
-    @ManyToMany(mappedBy = "login")
+    @ManyToMany
     private Set<Login> logins;
 }

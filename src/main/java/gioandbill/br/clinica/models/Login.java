@@ -21,12 +21,11 @@ public class Login {
     private String password;
     private String passwordConfirm;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Pessoa pessoa;
 
-
     @ManyToMany
-    @JoinTable
+    @JoinTable(joinColumns = @JoinColumn(name = "login_id"), inverseJoinColumns = @JoinColumn(name = "nivelacesso_id"))
     private Set<NivelAcesso> niveis;
 }

@@ -42,7 +42,7 @@ public class UserController {
 
         securityService.autologin(userForm.getLogin(), userForm.getPasswordConfirm());
 
-        return "redirect:/painel/index ";
+        return "redirect:dashboard";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
