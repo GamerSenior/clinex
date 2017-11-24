@@ -26,7 +26,8 @@ public class UserServiceImpl implements UserService{
     @Override
     public void save(Login login) {
         login.setPassword(bCryptPasswordEncoder.encode(login.getPassword()));
-        login.setNiveis(new HashSet<NivelAcesso>(nivelAcessoRepository.findAll()));
+        login.setNiveis(new HashSet<NivelAcesso>());
+        nivelAcessoRepository.findAll().forEach((i) -> login.getNiveis().add(i));
         loginRepository.save(login);
     }
 
